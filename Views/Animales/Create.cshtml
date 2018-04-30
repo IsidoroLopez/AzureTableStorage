@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Registrar un nuevo animal en Storage Tabla</h2>
+
+<form method="post">
+    <div>
+        <label>Id animal: </label>
+        <input type="text" name="idanimal"
+               class="form-control"
+               placeholder="Código del animal" />
+    </div>
+    <div>
+        <label>Nombre: </label>
+        <input type="text" name="nombre"
+               class="form-control"
+               placeholder="Nombre" />
+    </div>
+    <div>
+        <label>Edad: </label>
+        <input type="number" name="edad"
+               class="form-control"
+               placeholder="Edad" />
+    </div>
+    <div>
+        <label>Raza: </label>
+        <input type="text" name="raza"
+               class="form-control"
+               placeholder="Tipo de raza" />
+    </div>
+    <div>
+        <button type="submit" class="btn-success">
+            Registrar nuevo animal
+        </button>
+    </div>
+</form>
+<hr />
+<h1 style="color:blue">
+    @ViewBag.Mensaje
+</h1>

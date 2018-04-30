@@ -1,0 +1,82 @@
+﻿@model AppTableStorage.Models.Animales
+
+@{
+    ViewBag.Title = "DetalleAnimal";
+}
+
+<h2>DetalleAnimal</h2>
+
+<div>
+    <h4>Animales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartitionKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartitionKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RowKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RowKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdAnimal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdAnimal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raza)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "ModificarAnimal", new { idanimal = Model.RowKey, raza = Model.RowKey }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

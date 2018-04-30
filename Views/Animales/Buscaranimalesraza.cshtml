@@ -1,0 +1,97 @@
+﻿@model List<AppTableStorage.Models.Animales>
+
+@{
+    ViewBag.Title = "BuscarAnimalesRaza";
+}
+
+@{
+    List<String> listaempresas = ViewBag.Empresas;
+}
+
+<h2>Buscar Animales por raza</h2>
+
+<p>
+    @Html.ActionLink("Nuevo cliente", "Create")
+</p>
+
+<form method="post">
+    <label>Buscar clientes por empresa</label>
+    @if (listaempresas != null)
+    {
+        <select name="empresa"
+                class="form-control">
+            @foreach (var empresa in listaempresas)
+            {
+                <option value="@empresa">@empresa</option>
+            }
+        </select>
+    }
+    else
+    {
+        <input type="text" name="raza"
+               class="form-control"
+               placeholder="Raza del animal" />
+    }
+
+
+    <button type="submit" class="btn-success">
+        Buscar animales por su raza
+    </button>
+</form>
+
+<hr />
+
+<h2 style="color:red">@ViewBag.Mensaje</h2>
+
+
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                RAZA
+            </th>
+            <th>
+                ID ANIMAL
+            </th>
+            <th>
+                REGISTRADO EL DÍA
+            </th>
+            <th>
+                NOMBRE
+            </th>
+            <th>
+                EDAD
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartitionKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timestamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar", "ModificarAnimal", new { idanimal = item.RowKey, raza = item.PartitionKey }) |
+                    @Html.ActionLink("Detalles", "DetalleAnimal", new { idanimal = item.RowKey, raza = item.PartitionKey }) |
+                    @Html.ActionLink("Eliminar", "EliminarAnimal", new { idanimal = item.RowKey, raza = item.PartitionKey })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
